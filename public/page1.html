@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+</head>
+<body>
+    <button id="openPage2Button">Open Page 2</button>
+    <button id="sendMessageButton">Send Message</button>
+
+    <script>
+        let page2Window;
+
+        document.getElementById('openPage2Button').addEventListener('click', function() {
+            // Open page2.html in a new tab and store the reference
+            page2Window = window.open('http://localhost:3000/page2.html', null, "left=100,top=100,width=320,height=320");
+        });
+
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            // Send a message to the already opened page2.html
+            const message = {
+                type: 'json',
+                content: 'りんご'
+            };
+
+            if (page2Window) {
+                page2Window.postMessage(message, 'http://localhost:3000');
+            } else {
+                alert('page2.html is not opened yet.');
+            }
+        });
+    </script>
+</body>
+</html>

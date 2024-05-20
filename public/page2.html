@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        .highlight {
+            border: 2px solid red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <p id="content">ここにはりんごが１つあります</p>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            // Ensure the message is from the expected origin
+            if (event.origin !== 'http://localhost:3000') {
+                return;
+            }
+
+            // Parse the received message
+            const message = event.data;
+            if (message.type === 'json' && message.content === 'りんご') {
+                const contentElement = document.getElementById('content');
+                const text = contentElement.textContent;
+                const highlightedText = text.replace('りんご', '<span class="highlight">りんご</span>');
+                contentElement.innerHTML = highlightedText;
+            }
+        });
+
+        // Notify page1.html that page2.html is ready
+        window.opener.page2Window = window;
+    </script>
+</body>
+</html>
