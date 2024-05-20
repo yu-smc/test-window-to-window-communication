@@ -1,0 +1,23 @@
+{
+  "name": "test-window-to-window-communication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server \"./public\" --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yu-smc/test-window-to-window-communication.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yu-smc/test-window-to-window-communication/issues"
+  },
+  "homepage": "https://github.com/yu-smc/test-window-to-window-communication#readme",
+  "dependencies": {
+    "browser-sync": "^3.0.2"
+  }
+}
